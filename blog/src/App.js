@@ -66,12 +66,16 @@ function App() {
         }
         <input onChange={(e)=>{setInput(e.target.value)}} type="text" />
         <button onClick={()=>{
-          var copy = [...posts];
-          copy.push(input);
-          var copy2 = [...thumbs];
-          copy2.push(0);
-          setThumbs(copy2);
-          setPosts(copy);
+          if(input){
+            var copy = [...posts];
+            copy.push(input);
+            var copy2 = [...thumbs];
+            copy2.push(0);
+            setThumbs(copy2);
+            setPosts(copy);
+          }else{
+            alert('글 내용을 입력해주세요.');
+          }
         }}>글발행</button>
       {modal ? <Modal title={title} posts={posts}/> : null}
     </div>
