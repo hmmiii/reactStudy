@@ -14,6 +14,7 @@ function App() {
   let [posts, setPosts] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
   let [thumbs, setThumbs] = useState([0,0,0]);
   let [modal, setModal] = useState(false);
+  let [title, setTitle] = useState(0);
   return (
     <div className="App">
       <div className="black-nav">
@@ -32,7 +33,10 @@ function App() {
         {
           posts.map((a, i)=>(
             <div className="list" key={i}>
-              <h3 onClick={()=>{setModal(!modal)}}>{ a } <span
+              <h3 onClick={()=>{
+                setTitle(i);
+                setModal(!modal)
+              }}>{ a } <span
               onClick={ ()=>{
                 var copy = [...thumbs];
                 copy[i]++;
@@ -53,7 +57,7 @@ function App() {
             </div>      
           ))
         }
-      {modal ? <Modal posts={posts}/> : null}
+      {modal ? <Modal title={title} posts={posts}/> : null}
     </div>
   );
 }
@@ -61,7 +65,7 @@ function App() {
 function Modal(props){
   return(
     <div className="modal">
-      <h4>{props.posts[0]}</h4>
+      <h4>{props.posts[props.title]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
