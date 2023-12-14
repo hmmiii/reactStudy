@@ -11,7 +11,7 @@ function App() {
       setAge(prev => prev+1);
     }
   },[count]);
-  let [posts, setPosts] = useState('강남 고기 맛집');
+  let [posts, setPosts] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
   let [thumbs, setThumbs] = useState(0);
   var data = '안녕하세요.';
   return (
@@ -30,8 +30,13 @@ function App() {
         }}>누르면한살먹기</button>
       </div>
       <div className="list">
-        <h3>{ posts } <span onClick={ ()=>{setThumbs(prev => prev+1)} }>👍</span> {thumbs}</h3>
+        <h3>{ posts[0] } <span onClick={ ()=>{setThumbs(prev => prev+1)} }>👍</span> {thumbs}</h3>
         <p>2월 17일 발행</p>
+        <button onClick={ ()=>{ 
+          let copy = [...posts];
+          copy[0] = '여자코트 추천';
+          setPosts(copy);
+        } }> 수정버튼 </button>
         <hr/>
       </div>      
     </div>
