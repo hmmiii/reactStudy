@@ -29,32 +29,30 @@ function App() {
           // }
         }}>누르면한살먹기</button>
       </div>
-      <div className="list">
         {
           posts.map((a, i)=>(
-              <div key={i}>
-                <h3 onClick={()=>{setModal(!modal)}}>{ a } <span
-                onClick={ ()=>{
-                  var copy = [...thumbs];
-                  copy[i]++;
-                  setThumbs(copy);
-                } }>👍</span> {thumbs[i]}</h3>
-                <p>2월 17일 발행</p>
-                <button onClick={ ()=>{ 
-                  let copy = [...posts];
-                  copy[0] = '여자코트 추천';
-                  setPosts(copy);
-                } }> 수정버튼 </button>
-                <button onClick={ ()=>{ 
-                  let copy = [...posts];
-                  copy.sort();
-                  setPosts(copy);
-                } }> 정렬버튼 </button>
-                <hr/>
-              </div>
+            <div className="list" key={i}>
+              <h3 onClick={()=>{setModal(!modal)}}>{ a } <span
+              onClick={ ()=>{
+                var copy = [...thumbs];
+                copy[i]++;
+                setThumbs(copy);
+              } }>👍</span> {thumbs[i]}</h3>
+              <p>2월 17일 발행</p>
+              <button onClick={ ()=>{ 
+                let copy = [...posts];
+                copy[0] = '여자코트 추천';
+                setPosts(copy);
+              } }> 수정버튼 </button>
+              <button onClick={ ()=>{ 
+                let copy = [...posts];
+                copy.sort();
+                setPosts(copy);
+              } }> 정렬버튼 </button>
+              <hr/>
+            </div>      
           ))
         }
-      </div>      
       {modal ? <Modal/> : null}
     </div>
   );
