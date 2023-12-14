@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+/*eslint-disable*/
+
+import {useState} from 'react';
 import './App.css';
 
 function App() {
+  let [posts, setPosts] = useState('강남 고기 맛집');
+  let [thumbs, setThumbs] = useState(0);
+  var data = '안녕하세요.';
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="black-nav">
+        <div>개발 BLOG</div>
+      </div>
+      <div className="list">
+        <h3>{ posts } <span onClick={ ()=>{setThumbs(prev => prev+1)} }>👍</span> {thumbs}</h3>
+        <p>2월 17일 발행</p>
+        <hr/>
+      </div>      
     </div>
   );
 }
