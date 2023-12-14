@@ -15,6 +15,7 @@ function App() {
   let [thumbs, setThumbs] = useState([0,0,0]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0);
+  let [input, setInput] = useState('');
   return (
     <div className="App">
       <div className="black-nav">
@@ -58,6 +59,12 @@ function App() {
             </div>      
           ))
         }
+        <input onChange={(e)=>{setInput(e.target.value)}} type="text" />
+        <button onClick={()=>{
+          var copy = [...posts];
+          copy.push(input);
+          setPosts(copy);
+        }}>글발행</button>
       {modal ? <Modal title={title} posts={posts}/> : null}
     </div>
   );
