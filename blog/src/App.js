@@ -68,6 +68,9 @@ function App() {
         <button onClick={()=>{
           var copy = [...posts];
           copy.push(input);
+          var copy2 = [...thumbs];
+          copy2.push(0);
+          setThumbs(copy2);
           setPosts(copy);
         }}>글발행</button>
       {modal ? <Modal title={title} posts={posts}/> : null}
