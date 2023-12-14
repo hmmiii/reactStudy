@@ -37,6 +37,11 @@ function App() {
           copy[0] = '여자코트 추천';
           setPosts(copy);
         } }> 수정버튼 </button>
+        <button onClick={ ()=>{ 
+          let copy = [...posts];
+          copy.sort();
+          setPosts(copy);
+        } }> 정렬버튼 </button>
         <hr/>
       </div>      
     </div>
