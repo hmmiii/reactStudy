@@ -55,6 +55,11 @@ function App() {
                 copy.sort();
                 setPosts(copy);
               } }> 정렬버튼 </button>
+              <button onClick={()=>{
+                var copy = [...posts];
+                copy.splice(i, 1);
+                setPosts(copy);
+              }}>삭제</button>
               <hr/>
             </div>      
           ))
