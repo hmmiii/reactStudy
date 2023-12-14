@@ -37,7 +37,8 @@ function App() {
                 setTitle(i);
                 setModal(!modal)
               }}>{ a } <span
-              onClick={ ()=>{
+              onClick={ (e)=>{
+                e.stopPropagation();
                 var copy = [...thumbs];
                 copy[i]++;
                 setThumbs(copy);
