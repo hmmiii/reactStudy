@@ -53,15 +53,15 @@ function App() {
             </div>      
           ))
         }
-      {modal ? <Modal/> : null}
+      {modal ? <Modal posts={posts}/> : null}
     </div>
   );
 }
 
-function Modal(){
+function Modal(props){
   return(
     <div className="modal">
-      <h4>제목</h4>
+      <h4>{props.posts[0]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
